@@ -12,8 +12,9 @@ mkdir ~/.vimtmp
 
 cp .bashrc_aliases ~
 cp .bashrc_git_settings ~
-cat bashrc_install >> ~/.bashrc
+cat bashrc_setup >> ~/.bashrc
 
+./solarized_color_setup
 source ~/.bashrc
 
 echo "Launch vim and run :PluginInstall"
