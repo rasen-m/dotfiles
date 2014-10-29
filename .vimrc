@@ -16,6 +16,11 @@ call vundle#end()
 filetype plugin indent on
 " </vundle>
  
+" <default gui size>
+set lines=50 columns=83
+set guifont=Monospace\ 14
+" </default gui size>
+
 " <color scheme>
 syntax enable
 set background=dark
