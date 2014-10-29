@@ -1,9 +1,9 @@
 [user]
 	name = Sean Su
-	email = seansu@me.com
+	email = jejekule@gmail.com
 [core]
 	editor = vim
-	excludesfile = /Users/seansu/.gitignore
+	excludesfile = /Users/sean/.gitignore
 [color]
 	ui = true
 [alias]

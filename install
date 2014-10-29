@@ -1,0 +1,21 @@
+#!/bin/bash
+echo "[Setting up git]"
+cp .gitconfig ~
+cp .git-completion.bash ~
+cp .git-prompt.sh ~
+
+echo "[Setting up vim]"
+cp -R .vim ~
+cp .vimrc ~
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+mkdir ~/.vimtmp
+
+cp .bashrc_aliases ~
+cp .bashrc_git_settings ~
+cat bashrc_install >> ~/.bashrc
+
+source ~/.bashrc
+
+echo "Launch vim and run :PluginInstall"
+echo "Change the ~/.gitconfig to point to the correct excludesfile"
+echo "Make sure this is run only the first time on this OS, else ~/.bashrc might be appended with redundant commands"
