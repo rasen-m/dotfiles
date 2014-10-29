@@ -1,5 +1,10 @@
-# personal aliases
-alias .ssh1="ssh sean@sillygrubs.com"
-alias .ssh2="ssh -i keypath Sean@ec2-54-187-172-82.us-west-2.compute.amazonaws.com"
+# commonly used alias
 alias .pmrs='python manage.py runserver'
 alias artisan='php artisan'
+
+# working ssh
+alias .ssh1="ssh sean@sillygrubs.com"
+alias .ssh2="ssh -i keypath Sean@ec2-54-187-172-82.us-west-2.compute.amazonaws.com"
+
+# commonly accessed folders
+alias .d="cd ~/_dev/"
