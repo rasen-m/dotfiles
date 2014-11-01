@@ -29,6 +29,11 @@ colorscheme solarized
 set t_Co=16
 " </color scheme>
 
+" <folding>
+set foldmethod=marker
+set foldmarker={,}
+" </folding>
+
 " <mapping>
 nmap G Gzz
 nmap } }zz
