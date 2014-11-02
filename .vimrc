@@ -16,6 +16,18 @@ call vundle#end()
 filetype plugin indent on
 " </vundle>
  
+" <default open behaviour>
+function! StartUp()
+    if 0 == argc()
+        NERDTree
+        wincmd p
+        q
+    end
+endfunction
+
+autocmd VimEnter * call StartUp()
+" </default open behaviour>
+
 " <default gui size>
 set lines=50 columns=83
 set guifont=Monospace\ 14
