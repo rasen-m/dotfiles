@@ -1,0 +1,23 @@
+# Mac OS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
+
+# Icon must ends with two \r
+Icon
+
+################################################################################
+# PROGRAMMING LANGUAGES SPECIFIC
+################################################################################
+
+# Racket
+*.rkt[~#*]
+
+# Python
+*.py[cod]
+
+# C++
+*.o
