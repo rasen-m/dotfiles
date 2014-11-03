@@ -47,6 +47,7 @@ set t_Co=16
 "set foldmarker={,}
 set foldmethod=indent
 set foldminlines=0
+set foldnestmax=1
 " </folding>
 
 " <mapping>
