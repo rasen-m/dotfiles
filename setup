@@ -7,16 +7,29 @@ cp .git-prompt.sh ~
 echo "[Setting up vim]"
 cp -R .vim ~
 cp .vimrc ~
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-mkdir ~/.vimtmp
+
+if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
+    echo "SDFSFS"
+    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
+if [ ! -d $HOME/.vimtmp ]; then
+    mkdir ~/.vimtmp
+fi
 
 cp .bashrc_aliases ~
 cp .bashrc_git_settings ~
-cat bashrc_setup >> ~/.bashrc
+
+if [ ! -f $HOME/.jejekule_dotted ]; then
+    cat bashrc_setup >> ~/.bashrc
+    touch ~/.jejekule_dotted
+fi
 
 ./solarized_color_setup
 source ~/.bashrc
+vim +PluginInstall +qall
 
-echo "Launch vim and run :PluginInstall"
-echo "Change the ~/.gitconfig to point to the correct excludesfile"
-echo "Make sure this is run only the first time on this OS, else ~/.bashrc might be appended with redundant commands"
+if [ ! -f $HOME/.gitignore_global ]; then
+    touch ~/.gitignore_global
+    git config --global core.exludesfile ~/.gitignore_global
+fi
