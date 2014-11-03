@@ -29,7 +29,8 @@ fi
 source ~/.bashrc
 vim +PluginInstall +qall
 
-if [ ! -f $HOME/.gitignore_global ]; then
-    touch ~/.gitignore_global
-    git config --global core.exludesfile ~/.gitignore_global
-fi
+#if [ ! -f $HOME/.gitignore_global ]; then
+#touch ~/.gitignore_global
+cp .gitignore_global ~
+git config --global core.exludesfile ~/.gitignore_global
+#fi
