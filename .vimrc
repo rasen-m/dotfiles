@@ -42,8 +42,10 @@ set t_Co=16
 " </color scheme>
 
 " <folding>
-set foldmethod=marker
-set foldmarker={,}
+"set foldmethod=marker
+"set foldmarker={,}
+set foldmethod=indent
+set foldminlines=0
 " </folding>
 
 " <mapping>
