@@ -17,18 +17,6 @@ call vundle#end()
 filetype plugin indent on
 " </vundle>
  
-" <default open behaviour>
-"function! StartUp()
-"    if 0 == argc()
-"        NERDTree
-"        wincmd p
-"        q
-"    end
-"endfunction
-
-"autocmd VimEnter * call StartUp()
-" </default open behaviour>
-
 " <default gui size>
 set lines=50 columns=83
 set guifont=Monospace\ 14
@@ -53,6 +41,24 @@ set t_Co=16
 " <abbreviations>
 " </abbreviations>
 
+" <default open behaviour>
+"function! StartUp()
+"    if 0 == argc()
+"        NERDTree
+"        wincmd p
+"        q
+"    end
+"endfunction
+
+"autocmd VimEnter * call StartUp()
+" </default open behaviour>
+
+function! NerdTreeToggle()
+    NERDTreeToggle
+    wincmd p
+    q
+endfunction
+
 " <commands>
 command Q q
 command WQ wq
@@ -64,6 +70,7 @@ nmap G Gzz
 nmap } }zz
 nmap { {zz
 map <F5> :NERDTreeToggle<CR>
+map <F6> :call NerdTreeToggle()<CR>
 
 "set autochdir
 map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
