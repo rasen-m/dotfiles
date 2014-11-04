@@ -50,15 +50,27 @@ set t_Co=16
 "set foldnestmax=1
 " </folding>
 
+" <abbreviations>
+" </abbreviations>
+
+" <commands>
+command Q q
+command WQ wq
+command Wq wq
+" </commands>
+
 " <mapping>
 nmap G Gzz
 nmap } }zz
 nmap { {zz
 map <F5> :NERDTreeToggle<CR>
 
-" Press Space to turn off highlighting and clear any message already
-" displayed.
-:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+"set autochdir
+map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
+
+" Press Space to turn off highlighting and clear any message already displayed
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+":nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " </mapping>
 
 " remove auto commenting
@@ -158,4 +170,3 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-
