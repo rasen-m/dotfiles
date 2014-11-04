@@ -18,15 +18,15 @@ filetype plugin indent on
 " </vundle>
  
 " <default open behaviour>
-function! StartUp()
-    if 0 == argc()
-        NERDTree
-        wincmd p
-        q
-    end
-endfunction
+"function! StartUp()
+"    if 0 == argc()
+"        NERDTree
+"        wincmd p
+"        q
+"    end
+"endfunction
 
-autocmd VimEnter * call StartUp()
+"autocmd VimEnter * call StartUp()
 " </default open behaviour>
 
 " <default gui size>
@@ -45,9 +45,9 @@ set t_Co=16
 " <folding>
 "set foldmethod=marker
 "set foldmarker={,}
-set foldmethod=indent
-set foldminlines=0
-set foldnestmax=1
+"set foldmethod=indent
+"set foldminlines=0
+"set foldnestmax=1
 " </folding>
 
 " <mapping>
