@@ -63,6 +63,7 @@ endfunction
 command Q q
 command WQ wq
 command Wq wq
+command W w
 " </commands>
 
 " <mapping>
