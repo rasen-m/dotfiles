@@ -25,8 +25,8 @@ if [ ! -f $HOME/.jejekule_dotted ]; then
 fi
 
 ./solarized_color_setup
-source ~/.bashrc
 vim +PluginInstall +qall
+source ~/.bashrc
 
 #if [ ! -f $HOME/.gitignore_global ]; then
 #touch ~/.gitignore_global
