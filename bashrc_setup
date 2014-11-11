@@ -1,9 +1,13 @@
 
 # load my personal settings and aliases
-if [ -f $HOME/.bashrc_git_settings ]; then
-    source $HOME/.bashrc_git_settings
+if [ -f $HOME/.bash_git_settings ]; then
+    source $HOME/.bash_git_settings
 fi
 
-if [ -f $HOME/.bashrc_aliases ]; then
-    source $HOME/.bashrc_aliases
+if [ -f $HOME/.bash_aliases ]; then
+    source $HOME/.bash_aliases
+fi
+
+if [ -f $HOME/.bash_path ]; then
+    source $HOME/.bash_path
 fi

@@ -16,8 +16,9 @@ if [ ! -d $HOME/.vimtmp ]; then
     mkdir ~/.vimtmp
 fi
 
-cp .bashrc_aliases ~
-cp .bashrc_git_settings ~
+cp .bash_aliases ~
+cp .bash_git_settings ~
+cp .bash_path ~
 
 if [ ! -f $HOME/.jejekule_dotted ]; then
     cat bashrc_setup >> ~/.bashrc
