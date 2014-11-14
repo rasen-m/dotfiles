@@ -3,7 +3,6 @@
 	email = jejekule@gmail.com
 [core]
 	editor = vim
-	excludesfile = /Users/sean/.gitignore
 [color]
 	ui = true
 [alias]

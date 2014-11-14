@@ -12,9 +12,23 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'xsbeats/vim-blade'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 filetype plugin indent on
+
+syntax enable
+set background=dark
+colorscheme solarized
+set t_Co=16
+
+set ts=4 sw=4 et
+let g:indent_guides_start_level = 2
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+au VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=16
+au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=0
+au VimEnter * IndentGuidesEnable
 " </vundle>
  
 " <default gui size>
@@ -23,11 +37,6 @@ set guifont=Monospace\ 14
 winpos 0 0
 " </default gui size>
 
-" <color scheme>
-syntax enable
-set background=dark
-colorscheme solarized
-set t_Co=16
 " </color scheme>
 
 " <folding>
