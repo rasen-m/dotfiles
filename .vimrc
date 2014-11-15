@@ -36,7 +36,6 @@ au VimEnter * IndentGuidesEnable
 " <default gui size>
 set lines=50 columns=83
 set guifont=Monospace\ 14
-winpos 0 0
 " </default gui size>
 
 " </color scheme>

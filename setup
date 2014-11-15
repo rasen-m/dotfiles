@@ -19,6 +19,7 @@ cp .git-prompt.sh ~
 echo "[Setting up vim]"
 cp -R .vim ~
 cp .vimrc ~
+cp -R vim-blade ~/.vim/bundle/vim-blade
 
 if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
