@@ -17,8 +17,10 @@ Plugin 'nathanaelkane/vim-indent-guides'
 call vundle#end()
 filetype plugin indent on
 
+set number
 syntax enable
 set background=dark
+"let g:solarized_termcolors = 256
 colorscheme solarized
 set t_Co=16
 
