@@ -1,4 +1,6 @@
 #!/bin/bash
+uname=`uname`
+
 if [ $1 = "r" ]; then
     sudo rm -R ~/.vim
     sudo rm ~/.vimrc
@@ -43,5 +45,12 @@ fi
 vim +PluginInstall +qall
 source ~/.bashrc
 
-echo "[Tip]"
-echo "If its on OSX, run 'Solarized Dark.terminal' and set that as default settings."
+if [[ "$uname" == 'Linux' ]]; then
+    ./solarized_dark_setup
+fi
+
+if [[ "$uname" == 'Darwin' ]]; then
+    echo "Run 'Solarized Dark.terminal' and set that as default settings."
+fi
+
+
