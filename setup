@@ -38,7 +38,6 @@ if [ ! -f $HOME/.jejekule_dotted ]; then
     touch ~/.jejekule_dotted
 fi
 
-./solarized_color_setup
 vim +PluginInstall +qall
 source ~/.bashrc
 
