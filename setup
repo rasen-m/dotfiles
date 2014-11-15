@@ -41,5 +41,6 @@ fi
 vim +PluginInstall +qall
 source ~/.bashrc
 
-cp .gitignore_global ~
-git config --global core.excludesfile ~/.gitignore_global
+
+echo "[Tip]"
+echo "If its on OSX, run 'Solarized Dark.terminal' and set that as default settings."
