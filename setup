@@ -23,6 +23,7 @@ git config --global core.excludesfile ~/.gitignore_global
 echo "[Setting up vim]"
 cp -R .vim ~
 cp .vimrc ~
+mkdir ~/.vim/bundle
 cp -R vim-blade ~/.vim/bundle/vim-blade
 
 if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
