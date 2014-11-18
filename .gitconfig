@@ -18,4 +18,4 @@
 	rc = rm --cached
 	rh = reset HEAD
 [push]
-	default = simple
+	default = matching
