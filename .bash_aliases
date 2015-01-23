@@ -11,4 +11,4 @@ alias .ssh3="ssh weitongs@fraser.sfu.ca"
 alias .d="cd ~/_dev/"
 
 # print aliases
-alias .alias="cat ~/.bashrc_aliases"
+alias .alias="cat ~/.bash_aliases"
