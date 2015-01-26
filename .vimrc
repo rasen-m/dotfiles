@@ -38,8 +38,6 @@ set lines=50 columns=100
 set guifont=Monospace\ 14
 " </default gui size>
 
-" </color scheme>
-
 " <folding>
 "set foldmethod=marker
 "set foldmarker={,}
@@ -47,21 +45,6 @@ set guifont=Monospace\ 14
 "set foldminlines=0
 "set foldnestmax=1
 " </folding>
-
-" <abbreviations>
-" </abbreviations>
-
-" <default open behaviour>
-"function! StartUp()
-"    if 0 == argc()
-"        NERDTree
-"        wincmd p
-"        q
-"    end
-"endfunction
-
-"autocmd VimEnter * call StartUp()
-" </default open behaviour>
 
 function! NerdTreeToggle()
     NERDTreeToggle
