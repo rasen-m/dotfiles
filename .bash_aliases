@@ -9,6 +9,7 @@ alias .ssh3="ssh weitongs@fraser.sfu.ca"
 
 # commonly accessed folders
 alias .d="cd ~/_dev/"
+alias .d="cd ~/Dropbox/studies/"
 
 # print aliases
 alias .alias="cat ~/.bash_aliases"
