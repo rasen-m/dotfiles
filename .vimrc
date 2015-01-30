@@ -39,11 +39,8 @@ set guifont=Monospace\ 14
 " </default gui size>
 
 " <folding>
-"set foldmethod=marker
-"set foldmarker={,}
-"set foldmethod=indent
-"set foldminlines=0
-"set foldnestmax=1
+set foldmethod=marker
+set foldmarker=<<<,>>>
 " </folding>
 
 function! NerdTreeToggle()
