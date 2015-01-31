@@ -12,7 +12,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'xsbeats/vim-blade'
+"Plugin 'xsbeats/vim-blade'
 
 call vundle#end()
 filetype plugin indent on

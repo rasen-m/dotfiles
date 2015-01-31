@@ -1,16 +1,14 @@
 #!/bin/bash
 uname=`uname`
 
-if [ $1 = "r" ]; then
+if [ ! -z $1] && [ $1 = "r" ]; then
     sudo rm -R ~/.vim
     sudo rm ~/.vimrc
     sudo rm ~/.gitconfig
     sudo rm ~/.git-completion.bash
     sudo rm ~/.git-prompt.sh
     sudo rm ~/.bash_aliases 
-    sudo rm ~/.bash_git_settings 
-    sudo rm ~/.bash_path
-    sudo rm ~/.gitignore_global
+    sudo rm ~/.bash_git_settings sudo rm ~/.bash_path sudo rm ~/.gitignore_global
 fi
 
 echo "[Setting up git]"
@@ -23,7 +21,9 @@ git config --global core.excludesfile ~/.gitignore_global
 echo "[Setting up vim]"
 cp -R .vim ~
 cp .vimrc ~
-mkdir ~/.vim/bundle
+if [ ! -d $HOME/.vim/bundle ]; then
+    mkdir ~/.vim/bundle
+fi
 cp -R vim-blade ~/.vim/bundle/vim-blade
 
 if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
@@ -53,3 +53,5 @@ fi
 if [[ "$uname" == 'Darwin' ]]; then
     echo "Run 'Solarized Dark.terminal' and set that as default settings."
 fi
+
+source ~/.bashrc
