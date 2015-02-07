@@ -8,7 +8,9 @@ if [ ! -z $1] && [ $1 = "r" ]; then
     sudo rm ~/.git-completion.bash
     sudo rm ~/.git-prompt.sh
     sudo rm ~/.bash_aliases 
-    sudo rm ~/.bash_git_settings sudo rm ~/.bash_path sudo rm ~/.gitignore_global
+    sudo rm ~/.bash_git_settings 
+    sudo rm ~/.bash_path 
+    sudo rm ~/.gitignore_global
 fi
 
 echo "[Setting up git]"
