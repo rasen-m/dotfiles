@@ -4,7 +4,7 @@ alias artisan='php artisan'
 
 # commonly accessed folders
 alias .d="cd ~/_dev/"
-alias .s="cd ~/Dropbox/studies/"
+alias .s="cd ~/Dropbox/_studies/"
 
 # print aliases
 alias .ssh="tail -n7 ~/.bash_aliases"
