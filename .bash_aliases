@@ -1,6 +1,8 @@
 # commonly used alias
-alias .pmrs='python manage.py runserver'
 alias artisan='php artisan'
+
+# osx
+alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
 
 # commonly accessed folders
 alias .d="cd ~/_dev/"

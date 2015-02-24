@@ -34,7 +34,7 @@ au VimEnter * IndentGuidesEnable
 " </vundle>
  
 " <default gui size>
-set lines=50 columns=100
+set lines=50 columns=85
 set guifont=Monospace\ 14
 " </default gui size>
 
