@@ -101,6 +101,12 @@ set showcmd
 set number
 
 set encoding=utf-8
+
+" always display statusline :help statusline
+set laststatus=2
+
+" add full file path to existing statusline
+set statusline+=%F
 " [ >>> vim settings ]
 
 set smartindent
