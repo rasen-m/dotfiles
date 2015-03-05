@@ -106,7 +106,7 @@ set encoding=utf-8
 set laststatus=2
 
 " add full file path to existing statusline
-set statusline=%F\ \ %=line=%l\ col=%c\ [%p%%]\ 
+set statusline=%F\ \ %=%l,%c\ (%p%%)
 " [ >>> vim settings ]
 
 set smartindent
