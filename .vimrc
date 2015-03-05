@@ -11,6 +11,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'xsbeats/vim-blade'
+Plugin 'Yggdroot/indentLine'
 call vundle#end()
 
 filetype plugin indent on
