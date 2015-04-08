@@ -30,7 +30,7 @@ set guifont=Monospace\ 14
 
 " [ <<< folding ]
 set foldmethod=marker
-set foldmarker=<<<,>>>
+set foldmarker=/*,*/
 " [ >>> folding ]
 
 " [ <<< commands and mappings ]
