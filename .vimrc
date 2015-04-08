@@ -1,4 +1,4 @@
-" [ <<< vundle ]
+" [ /* vundle ]
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -21,19 +21,19 @@ set background=dark
 " let g:solarized_termcolors = 256
 colorscheme solarized
 set t_Co=16
-" [ >>> vundle ]
+" [ */ vundle ]
 
-" [ <<< window default ]
+" [ /* window default ]
 set lines=49 columns=85
 set guifont=Monospace\ 14
-" [ >>> window default ]
+" [ */ window default ]
 
-" [ <<< folding ]
+" [ /* folding ]
 set foldmethod=marker
 set foldmarker=/*,*/
-" [ >>> folding ]
+" [ */ folding ]
 
-" [ <<< commands and mappings ]
+" [ /* commands and mappings ]
 function! NerdTreeToggle()
     NERDTreeToggle
     wincmd p
@@ -56,9 +56,9 @@ command Q q
 command WQ wq
 command Wq wq
 command W w
-" [ >>> commands and mappings ]
+" [ */ commands and mappings ]
 
-" [ <<< vim settings ]
+" [ /* vim settings ]
 " Remove auto commenting
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -107,7 +107,7 @@ set laststatus=2
 
 " add full file path to existing statusline
 set statusline=%F\ \ %=%l,%c\ (%p%%)
-" [ >>> vim settings ]
+" [ */ vim settings ]
 
 set smartindent
 set tabstop=4
