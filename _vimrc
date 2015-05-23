@@ -1,7 +1,8 @@
 " [ /* vundle ]
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/_vim/bundle/Vundle.vim
+let path='~/_vim/bundle'
 
 call vundle#begin()
 Plugin 'gmarik/vundle'
@@ -85,8 +86,8 @@ else
     set backup		
 endif
 
-set backupdir=~/.vimtmp
-set directory=~/.vimtmp
+set backupdir=~/_vimtmp
+set directory=~/_vimtmp
 
 " Keep 50 lines of command line history
 set history=50

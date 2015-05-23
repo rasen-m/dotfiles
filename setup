@@ -56,4 +56,10 @@ if [[ "$uname" == 'Darwin' ]]; then
     echo "Run 'Solarized Dark.terminal' and set that as default settings."
 fi
 
+# Windows Cygwin color setup
+#cat ./.minttyrc.dark >> ~/.minttyrc
+#change home directory to windowhome directory
+#mount -f "$USERPROFILE" ~
+#mount -m > /etc/fstab
 source ~/.bashrc
+
