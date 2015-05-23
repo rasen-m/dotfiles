@@ -1,7 +1,6 @@
 #!/bin/bash
-uname=`uname`
 
-if [ ! -z $1 ] && [ $1 = "r" ]; then
+if [ ! -z $1 ] && [ $1 = "fresh" ]; then
     sudo rm -R ~/.vim
     sudo rm ~/.vimrc
     sudo rm ~/.gitconfig
@@ -13,20 +12,27 @@ if [ ! -z $1 ] && [ $1 = "r" ]; then
     sudo rm ~/.gitignore_global
 fi
 
+################################################################################
 echo "[Setting up git]"
-cp .gitconfig ~
-cp .git-completion.bash ~
-cp .git-prompt.sh ~
-cp .gitignore_global ~
+
+cp git/.gitconfig ~
+cp git/.git-completion.bash ~
+cp git/.git-prompt.sh ~
+cp git/.gitignore_global ~
+
 git config --global core.excludesfile ~/.gitignore_global
 
+################################################################################
 echo "[Setting up vim]"
-cp -R .vim ~
-cp .vimrc ~
+
+cp -R vim/.vim ~
+cp vim/.vimrc ~
+
 if [ ! -d $HOME/.vim/bundle ]; then
     mkdir ~/.vim/bundle
 fi
-cp -R vim-blade ~/.vim/bundle/vim-blade
+
+cp -R vim/vim-blade ~/.vim/bundle/vim-blade
 
 if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -36,20 +42,25 @@ if [ ! -d $HOME/.vimtmp ]; then
     mkdir ~/.vimtmp
 fi
 
-cp .bash_aliases ~
-cp .bash_git_settings ~
-cp .bash_path ~
+vim +PluginInstall +qall
+
+################################################################################
+echo "[Setting up bash]"
+
+cp bash/.bash_aliases ~
+cp bash/.bash_git_settings ~
+cp bash/.bash_path ~
 
 if [ ! -f $HOME/.jejekule_dotted ]; then
-    cat bashrc_setup >> ~/.bashrc
+    cat bash/bashrc_setup >> ~/.bashrc
     touch ~/.jejekule_dotted
 fi
 
-vim +PluginInstall +qall
-source ~/.bashrc
+################################################################################
+uname=`uname`
 
 if [[ "$uname" == 'Linux' ]]; then
-    ./solarized_dark_setup
+    ./color/solarized_dark_linux_setup
 fi
 
 if [[ "$uname" == 'Darwin' ]]; then
@@ -61,5 +72,6 @@ fi
 #change home directory to windowhome directory
 #mount -f "$USERPROFILE" ~
 #mount -m > /etc/fstab
-source ~/.bashrc
 
+################################################################################
+source ~/.bashrc
