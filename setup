@@ -64,7 +64,7 @@ if [[ "$uname" == 'Linux' ]]; then
 fi
 
 if [[ "$uname" == 'Darwin' ]]; then
-    echo "Run 'Solarized Dark.terminal' and set that as default settings."
+    echo "Run 'solarized_dark_osx_setup.terminal' and set that as default settings."
 fi
 
 # Windows Cygwin color setup
