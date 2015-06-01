@@ -5,29 +5,39 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'gmarik/vundle'
-Plugin 'tomasr/molokai'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'xsbeats/vim-blade'
 Plugin 'Yggdroot/indentLine'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'maciakl/vim-neatstatus'
+
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'xsbeats/vim-blade'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'othree/html5.vim'
 call vundle#end()
 
 "filetype plugin indent on
-set number
-syntax enable
-set background=dark
+"set number
 " let g:solarized_termcolors = 256
-colorscheme solarized
-set t_Co=16
 " [ */ vundle ]
 
-
 " [ /* customizing packages ]
+" altercation/vim-colors-solarized
+set t_Co=256
+syntax enable
+set background=dark
+colorscheme solarized
+
+" maciakl/vim-neatstatus
+set laststatus=2
+
+" othree/javascript-libraries-syntax.vim
 let g:used_javascript_libs='underscore,jquery,angularjs,angularui'
+
 " [ */ customizing packages ]
 "
 " [ /* window default ]
@@ -56,14 +66,24 @@ map <F6> :call NerdTreeToggle()<CR>
 " Press Space to turn off highlighting and clear any message already displayed
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-" set autochdir
-" map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
-
 command Q q
 command WQ wq
 command Wq wq
 command W w
 " [ */ commands and mappings ]
+
+" [ /* backup settings  ]
+if has("vms")
+    " Do not keep a backup file, use versions instead
+    set nobackup		
+else
+    " Keep a backup file
+    set backup		
+endif
+
+set backupdir=~/.vimtmp
+set directory=~/.vimtmp
+" [ */ backup settings  ]
 
 " [ /* vim settings ]
 " Remove auto commenting
@@ -78,48 +98,30 @@ if has('mouse')
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
     syntax on
-    set hlsearch
 endif
-
-if has("vms")
-    " Do not keep a backup file, use versions instead
-    set nobackup		
-else
-    " Keep a backup file
-    set backup		
-endif
-
-set backupdir=~/.vimtmp
-set directory=~/.vimtmp
 
 " Keep 50 lines of command line history
 set history=50
 
 " Show the cursor position all the time
-set ruler
+"set ruler
 
 " Display incomplete commands
 set showcmd
 
 " Display line number at the side
 set number
-
-set encoding=utf-8
-
-" always display statusline :help statusline
-set laststatus=2
-
-" add full file path to existing statusline
-set statusline=%F\ \ %=%l,%c\ (%p%%)
+set numberwidth=1
 
 " set omni completion
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+
 " [ */ vim settings ]
 
+set encoding=utf-8
 set smartindent
 set tabstop=4
 set shiftwidth=4
@@ -130,7 +132,6 @@ set cindent
 set nohlsearch
 let html_no_rendering=1
 
-set numberwidth=1
 set incsearch		" do incremental searching
 highlight LineNr term=bold cterm=NONE ctermfg=232 ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 :let loaded_matchparen = 1
