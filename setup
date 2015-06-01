@@ -32,8 +32,6 @@ if [ ! -d $HOME/.vim/bundle ]; then
     mkdir ~/.vim/bundle
 fi
 
-cp -R vim/vim-blade ~/.vim/bundle/vim-blade
-
 if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi

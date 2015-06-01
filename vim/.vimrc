@@ -12,9 +12,11 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'xsbeats/vim-blade'
 Plugin 'Yggdroot/indentLine'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
 call vundle#end()
 
-filetype plugin indent on
+"filetype plugin indent on
 set number
 syntax enable
 set background=dark
@@ -23,6 +25,11 @@ colorscheme solarized
 set t_Co=16
 " [ */ vundle ]
 
+
+" [ /* customizing packages ]
+let g:used_javascript_libs='underscore,jquery,angularjs,angularui'
+" [ */ customizing packages ]
+"
 " [ /* window default ]
 set lines=49 columns=85
 set guifont=Monospace\ 14
@@ -107,6 +114,10 @@ set laststatus=2
 
 " add full file path to existing statusline
 set statusline=%F\ \ %=%l,%c\ (%p%%)
+
+" set omni completion
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 " [ */ vim settings ]
 
 set smartindent
