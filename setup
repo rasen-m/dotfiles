@@ -49,6 +49,10 @@ cp bash/.bash_aliases ~
 cp bash/.bash_git_settings ~
 cp bash/.bash_path ~
 
+if [ ! -f $HOME/.bash_profile ]; then
+    cp bash/.bash_profile ~
+fi
+
 if [ ! -f $HOME/.jejekule_dotted ]; then
     cat bash/bashrc_setup >> ~/.bashrc
     touch ~/.jejekule_dotted
