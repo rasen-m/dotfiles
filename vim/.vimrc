@@ -37,7 +37,7 @@ set smarttab          " make tab key obey indent rules specified above
 " [ */ tabbing and indentation ]
 
 " [ /* othree/javascript-libraries-syntax.vim ]
-let g:used_javascript_libs='underscore,jquery,angularjs,angularui'
+let g:used_javascript_libs='underscore,jquery,angularjs,angularui,angularuirouterreact,flux,requirejs,handlebars'
 " [ */ othree/javascript-libraries-syntax.vim ]
 
 " [ /* window default ]
