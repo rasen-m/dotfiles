@@ -90,6 +90,7 @@ set encoding=utf-8
 set history=50
 set hlsearch
 set incsearch
+set cursorline
 
 " Display line number at the side
 set number
@@ -107,6 +108,9 @@ set showcmd
 " Set omni completion
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+
+" Matching parenthesis
+hi MatchParen cterm=bold ctermbg=red ctermfg=white
 " [ */ vim settings ]
 
 " [ /* jsx settings  ]
