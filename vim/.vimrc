@@ -5,41 +5,46 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'gmarik/vundle'
-
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'Yggdroot/indentLine'
-Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'Yggdroot/indentLine'
+"Plugin 'Lokaltog/vim-easymotion'
 Plugin 'maciakl/vim-neatstatus'
 
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'xsbeats/vim-blade'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'othree/html5.vim'
+"Plugin 'octol/vim-cpp-enhanced-highlight'
+"Plugin 'xsbeats/vim-blade'
+"Plugin 'othree/html5.vim'
 call vundle#end()
-
-"filetype plugin indent on
-"set number
-" let g:solarized_termcolors = 256
 " [ */ vundle ]
 
-" [ /* customizing packages ]
-" altercation/vim-colors-solarized
-set t_Co=256
+" [ /* syntax highlighting and enable filetype stuff ]
 syntax enable
+filetype plugin indent on
+" [ */ syntax highlighting and enable filetype stuff ]
+
+" [ /* solarized ]
+set t_Co=16
 set background=dark
 colorscheme solarized
+" [ */ solarized ]
 
-" maciakl/vim-neatstatus
-set laststatus=2
+" [ /* tabbing and indentation ]
+set autoindent        " carry indent over to new lines
+set shiftwidth=2      " two spaces per indent
+set tabstop=2         " number of spaces per tab when viewing
+set softtabstop=2     " number of spaces per tab when inserting
+set expandtab         " sub spaces for tabs
+set smarttab          " make tab key obey indent rules specified above
+" [ */ tabbing and indentation ]
 
-" othree/javascript-libraries-syntax.vim
+" [ /* othree/javascript-libraries-syntax.vim ]
 let g:used_javascript_libs='underscore,jquery,angularjs,angularui'
+" [ */ othree/javascript-libraries-syntax.vim ]
 
-" [ */ customizing packages ]
-"
 " [ /* window default ]
 set lines=49 columns=85
 set guifont=Monospace\ 14
@@ -86,99 +91,51 @@ set directory=~/.vimtmp
 " [ */ backup settings  ]
 
 " [ /* vim settings ]
-" Remove auto commenting
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-    set mouse=a
-endif
-
-" Switch syntax highlighting on, when the terminal has colors
-if &t_Co > 2 || has("gui_running")
-    syntax on
-endif
-
 " Keep 50 lines of command line history
 set history=50
-
-" Show the cursor position all the time
-"set ruler
-
-" Display incomplete commands
-set showcmd
 
 " Display line number at the side
 set number
 set numberwidth=1
 
-" set omni completion
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-
 " [ */ vim settings ]
 
-set encoding=utf-8
-set smartindent
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set autoindent
-set smarttab
-set cindent
-set nohlsearch
-let html_no_rendering=1
+" [ /* jsx settings  ]
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" [ */ jsx settings  ]
 
-set incsearch		" do incremental searching
-highlight LineNr term=bold cterm=NONE ctermfg=232 ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-:let loaded_matchparen = 1
+" .............................................
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
+" Remove auto commenting
+"autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
+" Allow backspacing over everything in insert mode
+"set backspace=indent,eol,start
 
-    " Enable file type detection.
-    " Use the default filetype settings, so that mail gets 'tw' set to 72,
-    " 'cindent' is on in C files, etc.
-    " Also load indent files, to automatically do language-dependent indenting.
-    filetype plugin indent on
+" In many terminal emulators the mouse works just fine, thus enable it.
+"if has('mouse')
+"    set mouse=a
+"endif
 
-    " Put these in an autocmd group, so that we can delete them easily.
-    augroup vimrcEx
-        au!
+" Switch syntax highlighting on, when the terminal has colors
+"if &t_Co > 2 || has("gui_running")
+"    syntax on
+"endif
 
-        " For all text files set 'textwidth' to 100 characters.
-        autocmd FileType text setlocal textwidth=100
+" Display incomplete commands
+"set showcmd
 
-        " When editing a file, always jump to the last known cursor position.
-        " Don't do it when the position is invalid or when inside an event handler
-        " (happens when dropping a file on gvim).
-        " Also don't do it when the mark is in the first line, that is the default
-        " position when opening a file.
-        autocmd BufReadPost *
-                    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-                    \   exe "normal! g`\"" |
-                    \ endif
+" set omni completion
+"filetype plugin on
+"set omnifunc=syntaxcomplete#Complete
 
-    augroup END
+"set encoding=utf-8
+"set smartindent
+"set expandtab
+"set cindent
+"set nohlsearch
+"let html_no_rendering=1
 
-else
-
-
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-                \ | wincmd p | diffthis
-endif
+"set incsearch		" do incremental searching
+"highlight LineNr term=bold cterm=NONE ctermfg=232 ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+":let loaded_matchparen = 1
