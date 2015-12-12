@@ -116,3 +116,16 @@ hi MatchParen cterm=bold ctermbg=red ctermfg=white
 " [ /* jsx settings  ]
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " [ */ jsx settings  ]
+
+" [ /* auto on/off paste mode ]
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+" [ */ auto on/off paste mode ]
