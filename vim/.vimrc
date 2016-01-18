@@ -12,6 +12,9 @@ Plugin 'maciakl/vim-neatstatus'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'nathanaelkane/vim-indent-guides'
 call vundle#end()
 " [ */ vundle ]
 
@@ -25,6 +28,11 @@ set t_Co=16
 set background=dark
 colorscheme solarized
 " [ */ solarized ]
+
+" [ /* vim-indent-guides ]
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+" [ */ vim-indent-guides ]
 
 " [ /* tabbing and indentation ]
 "set autoindent        " carry indent over to new lines

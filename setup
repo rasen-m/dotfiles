@@ -53,7 +53,7 @@ if [ ! -f $HOME/.bash_profile ]; then
     cp bash/.bash_profile ~
 fi
 
-if [ ! -f $HOME/.jejekule_dotted ]; then
+if [ ! -f $HOME/.ityskumo_dotted ]; then
     cat bash/bashrc_setup >> ~/.bashrc
     touch ~/.jejekule_dotted
 fi
