@@ -1,6 +1,8 @@
 #!/bin/bash
 
 if [ ! -z $1 ] && [ $1 = "fresh" ]; then
+  echo "Remove all existing dotfiles..."
+
   sudo rm -R ~/.vim
   sudo rm ~/.vimrc
   sudo rm ~/.gitconfig
@@ -13,7 +15,7 @@ if [ ! -z $1 ] && [ $1 = "fresh" ]; then
 fi
 
 ################################################################################
-echo "[Setting up git]"
+echo "Setting up git..."
 
 cp git/.gitconfig ~
 cp git/.git-completion.bash ~
@@ -23,7 +25,7 @@ cp git/.gitignore_global ~
 git config --global core.excludesfile ~/.gitignore_global
 
 ################################################################################
-echo "[Setting up vim]"
+echo "Setting up vim..."
 
 cp -R vim/.vim ~
 cp vim/.vimrc ~
@@ -43,7 +45,7 @@ fi
 vim +PluginInstall +qall
 
 ################################################################################
-echo "[Setting up bash]"
+echo "Setting up bash..."
 
 cp bash/.bash_aliases ~
 cp bash/.bash_git_settings ~
