@@ -1,15 +1,15 @@
 #!/bin/bash
 
 if [ ! -z $1 ] && [ $1 = "fresh" ]; then
-    sudo rm -R ~/.vim
-    sudo rm ~/.vimrc
-    sudo rm ~/.gitconfig
-    sudo rm ~/.git-completion.bash
-    sudo rm ~/.git-prompt.sh
-    sudo rm ~/.bash_aliases 
-    sudo rm ~/.bash_git_settings 
-    sudo rm ~/.bash_path 
-    sudo rm ~/.gitignore_global
+  sudo rm -R ~/.vim
+  sudo rm ~/.vimrc
+  sudo rm ~/.gitconfig
+  sudo rm ~/.git-completion.bash
+  sudo rm ~/.git-prompt.sh
+  sudo rm ~/.bash_aliases 
+  sudo rm ~/.bash_git_settings 
+  sudo rm ~/.bash_path 
+  sudo rm ~/.gitignore_global
 fi
 
 ################################################################################
@@ -29,15 +29,15 @@ cp -R vim/.vim ~
 cp vim/.vimrc ~
 
 if [ ! -d $HOME/.vim/bundle ]; then
-    mkdir ~/.vim/bundle
+  mkdir ~/.vim/bundle
 fi
 
 if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
 if [ ! -d $HOME/.vimtmp ]; then
-    mkdir ~/.vimtmp
+  mkdir ~/.vimtmp
 fi
 
 vim +PluginInstall +qall
@@ -50,23 +50,23 @@ cp bash/.bash_git_settings ~
 cp bash/.bash_path ~
 
 if [ ! -f $HOME/.bash_profile ]; then
-    cp bash/.bash_profile ~
+  cp bash/.bash_profile ~
 fi
 
-if [ ! -f $HOME/.ityskumo_dotted ]; then
-    cat bash/bashrc_setup >> ~/.bashrc
-    touch ~/.jejekule_dotted
+if [ ! -f $HOME/.itsykumo_dotted ]; then
+  cat bash/bashrc_setup >> ~/.bashrc
+  touch ~/.itsykumo_dotted
 fi
 
 ################################################################################
 uname=`uname`
 
 if [[ "$uname" == 'Linux' ]]; then
-    ./color/solarized_dark_linux_setup
+  ./color/solarized_dark_linux_setup
 fi
 
 if [[ "$uname" == 'Darwin' ]]; then
-    echo "Run 'solarized_dark_osx_setup.terminal' and set that as default settings."
+  echo "Run 'solarized_dark_osx_setup.terminal' and set that as default settings."
 fi
 
 # Windows Cygwin color setup

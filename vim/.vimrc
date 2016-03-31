@@ -65,9 +65,9 @@ set foldmarker=/*,*/
 
 " [ /* commands and mappings ]
 function! NerdTreeToggle()
-    NERDTreeToggle
-    wincmd p
-    q
+  NERDTreeToggle
+  wincmd p
+  q
 endfunction
 
 nmap G Gzz
@@ -87,11 +87,11 @@ command W w
 
 " [ /* backup settings  ]
 if has("vms")
-    " Do not keep a backup file, use versions instead
-    set nobackup		
+  " Do not keep a backup file, use versions instead
+  set nobackup		
 else
-    " Keep a backup file
-    set backup		
+  " Keep a backup file
+  set backup		
 endif
 
 set backupdir=~/.vimtmp
