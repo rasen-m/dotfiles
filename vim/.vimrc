@@ -105,6 +105,9 @@ set hlsearch
 set incsearch
 set cursorline
 
+" Stop adding end-of-file newline char
+set binary
+
 " Display line number at the side
 set number
 set numberwidth=1
