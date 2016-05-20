@@ -51,6 +51,23 @@ var windowToRightScreenLeftHalf = S.operation('push', {
 	'screen': 1
 });
 
+var windowToLeftThird = S.operation('push', {
+	'direction': 'left',
+	'style': 'bar-resize: screenSizeX/3',
+});
+
+var windowToMiddleThird = S.operation('move', {
+	'x' : 'screenOriginX+(screenSizeX/3)',
+  'y' : 'screenOriginY',
+	'width' : 'screenSizeX/3',
+  'height' : 'screenSizeY',
+});
+
+var windowToRightThird = S.operation('push', {
+	'direction': 'right',
+	'style': 'bar-resize: screenSizeX/3',
+});
+
 S.bindAll({
 	'up:ctrl': function (windowObject) {
 		var windowRect = windowObject.rect();
@@ -68,7 +85,7 @@ S.bindAll({
 		var screenRect = windowObject.screen().rect();
 		var yield = _.contains(global.yieldApps, windowObject.app().name());
 
-		if (isAtRightHalfOfScreen(windowRect, screenRect, yield)) {
+		if (isAtRightHalfOfScreen(windowRect, screenRect, yield) && (windowObject.screen().id() == 0)) {
 			windowObject.doOperation(windowToRightScreenLeftHalf);
 		} else {
 			windowObject.doOperation(windowToRightHalf);
@@ -80,12 +97,15 @@ S.bindAll({
 		var screenRect = windowObject.screen().rect();
 		var yield = _.contains(global.yieldApps, windowObject.app().name());
 
-		if (isAtLeftHalfOfScreen(windowRect, screenRect, yield)) {
+		if (isAtLeftHalfOfScreen(windowRect, screenRect, yield) && (windowObject.screen().id() == 1)) {
 			windowObject.doOperation(windowToLeftScreenRightHalf);
 		} else {
 			windowObject.doOperation(windowToLeftHalf);
 		}
 	},
+	'1:ctrl': windowToLeftThird,
+	'2:ctrl': windowToMiddleThird,
+	'3:ctrl': windowToRightThird,
 });
 
 function isEqual(i, j, yield) {
@@ -121,7 +141,7 @@ function isAtRightThirdOfScreen(windowRect, screenRect, yield) {
 	return isEqual(screenRect.x + ((screenRect.width / 3) * 2), windowRect.x, yield) 
 	&& isEqual(compensatedScreenY, windowRect.y, yield) 
 	&& isEqual(compensatedScreenHeight, windowRect.height, yield) 
-	&& isEqual(screenRect.width / 3, windowRect.width, yield);
+	&& isEqual(screenRect.width / 2, windowRect.width, yield);
 }
 
 function isAtLeftHalfOfScreen(windowRect, screenRect, yield) {
