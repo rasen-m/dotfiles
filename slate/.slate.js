@@ -1,11 +1,3 @@
-var global = {
-	menuBarHeight: 23,
-	threshold: 5,
-	yieldApps: [
-		'Terminal',
-	],
-};
-
 S.configAll({
   'defaultToCurrentScreen' : true,
   'secondsBetweenRepeat' : 0.1,
@@ -69,87 +61,35 @@ var windowToRightThird = S.operation('push', {
 });
 
 S.bindAll({
-	'up:ctrl': function (windowObject) {
-		var windowRect = windowObject.rect();
-		var screenRect = windowObject.screen().rect();
-		var yield = _.contains(global.yieldApps, windowObject.app().name());
+	'up:ctrl': function (window) {
+		var oldWindowRect = window.rect();
+		window.doOperation(windowToTopHalf);
+		var newWindowRect = window.rect();
 
-		if (isAtTopHalfOfScreen(windowRect, screenRect, yield)) {
-			windowObject.doOperation(windowToFullScreen);
-		} else {
-			windowObject.doOperation(windowToTopHalf);
+		if (_.isEqual(oldWindowRect, newWindowRect)) {
+			window.doOperation(windowToFullScreen);
 		}
 	},
-	'right:ctrl': function (windowObject) {
-		var windowRect = windowObject.rect();
-		var screenRect = windowObject.screen().rect();
-		var yield = _.contains(global.yieldApps, windowObject.app().name());
+	'right:ctrl': function (window) {
+		var oldWindowRect = window.rect();
+		window.doOperation(windowToRightHalf);
+		var newWindowRect = window.rect();
 
-		if (isAtRightHalfOfScreen(windowRect, screenRect, yield) && (windowObject.screen().id() == 0)) {
-			windowObject.doOperation(windowToRightScreenLeftHalf);
-		} else {
-			windowObject.doOperation(windowToRightHalf);
+		if (_.isEqual(oldWindowRect, newWindowRect) && (window.screen().id() == 0)) {
+			window.doOperation(windowToRightScreenLeftHalf);
 		}
 	},
 	'down:ctrl': windowToBottomHalf,
-	'left:ctrl': function (windowObject) {
-		var windowRect = windowObject.rect();
-		var screenRect = windowObject.screen().rect();
-		var yield = _.contains(global.yieldApps, windowObject.app().name());
+	'left:ctrl': function (window) {
+		var oldWindowRect = window.rect();
+		window.doOperation(windowToLeftHalf);
+		var newWindowRect = window.rect();
 
-		if (isAtLeftHalfOfScreen(windowRect, screenRect, yield) && (windowObject.screen().id() == 1)) {
-			windowObject.doOperation(windowToLeftScreenRightHalf);
-		} else {
-			windowObject.doOperation(windowToLeftHalf);
+		if (_.isEqual(oldWindowRect, newWindowRect) && (window.screen().id() == 1)) {
+			window.doOperation(windowToLeftScreenRightHalf);
 		}
 	},
 	'1:ctrl': windowToLeftThird,
 	'2:ctrl': windowToMiddleThird,
 	'3:ctrl': windowToRightThird,
 });
-
-function isEqual(i, j, yield) {
-	finetune = yield ? 3 : 1;
-
-	return (global.threshold * finetune) >= Math.abs(i - j);
-}
-
-function isAtTopHalfOfScreen(windowRect, screenRect, yield) {
-	var compensatedScreenY = screenRect.y + global.menuBarHeight;
-	var compensatedScreenHeight = screenRect.height - global.menuBarHeight;
-
-	return isEqual(screenRect.x, windowRect.x, yield) 
-	&& isEqual(compensatedScreenY, windowRect.y, yield) 
-	&& isEqual(compensatedScreenHeight / 2, windowRect.height, yield) 
-	&& isEqual(screenRect.width, windowRect.width, yield);
-}
-
-function isAtRightHalfOfScreen(windowRect, screenRect, yield) {
-	var compensatedScreenY = screenRect.y + global.menuBarHeight;
-	var compensatedScreenHeight = screenRect.height - global.menuBarHeight;
-
-	return isEqual(screenRect.x + (screenRect.width / 2), windowRect.x, yield) 
-	&& isEqual(compensatedScreenY, windowRect.y, yield) 
-	&& isEqual(compensatedScreenHeight, windowRect.height, yield) 
-	&& isEqual(screenRect.width / 2, windowRect.width, yield);
-}
-
-function isAtRightThirdOfScreen(windowRect, screenRect, yield) {
-	var compensatedScreenY = screenRect.y + global.menuBarHeight;
-	var compensatedScreenHeight = screenRect.height - global.menuBarHeight;
-
-	return isEqual(screenRect.x + ((screenRect.width / 3) * 2), windowRect.x, yield) 
-	&& isEqual(compensatedScreenY, windowRect.y, yield) 
-	&& isEqual(compensatedScreenHeight, windowRect.height, yield) 
-	&& isEqual(screenRect.width / 2, windowRect.width, yield);
-}
-
-function isAtLeftHalfOfScreen(windowRect, screenRect, yield) {
-	var compensatedScreenY = screenRect.y + global.menuBarHeight;
-	var compensatedScreenHeight = screenRect.height - global.menuBarHeight;
-
-	return isEqual(screenRect.x, windowRect.x, yield) 
-	&& isEqual(compensatedScreenY, windowRect.y, yield) 
-	&& isEqual(compensatedScreenHeight, windowRect.height, yield) 
-	&& isEqual(screenRect.width / 2, windowRect.width, yield);
-}
