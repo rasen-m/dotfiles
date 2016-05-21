@@ -54,7 +54,7 @@ let g:used_javascript_libs='underscore,jquery,angularjs,angularui,angularuiroute
 " [ */ othree/javascript-libraries-syntax.vim ]
 
 " [ /* window default ]
-set lines=49 columns=85
+set lines=63 columns=89
 set guifont=Monospace\ 14
 " [ */ window default ]
 
@@ -75,6 +75,8 @@ nmap } }zz
 nmap { {zz
 map <F5> :NERDTreeToggle<CR>
 map <F6> :call NerdTreeToggle()<CR>
+nnoremap y "+y
+vnoremap y "+y
 
 " Press Space to turn off highlighting and clear any message already displayed
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
