@@ -61,16 +61,8 @@ var windowToRightThird = S.operation('push', {
 });
 
 S.bindAll({
-	'up:ctrl': function (window) {
-		var oldWindowRect = window.rect();
-		window.doOperation(windowToTopHalf);
-		var newWindowRect = window.rect();
-
-		if (_.isEqual(oldWindowRect, newWindowRect)) {
-			window.doOperation(windowToFullScreen);
-		}
-	},
-	'right:ctrl': function (window) {
+	'up:alt': windowToFullScreen,
+	'right:alt': function (window) {
 		var oldWindowRect = window.rect();
 		window.doOperation(windowToRightHalf);
 		var newWindowRect = window.rect();
@@ -79,8 +71,16 @@ S.bindAll({
 			window.doOperation(windowToRightScreenLeftHalf);
 		}
 	},
-	'down:ctrl': windowToBottomHalf,
-	'left:ctrl': function (window) {
+	'down:alt': function (window) {
+		var oldWindowRect = window.rect();
+		window.doOperation(windowToTopHalf);
+		var newWindowRect = window.rect();
+
+		if (_.isEqual(oldWindowRect, newWindowRect)) {
+			window.doOperation(windowToBottomHalf);
+		}
+	},
+	'left:alt': function (window) {
 		var oldWindowRect = window.rect();
 		window.doOperation(windowToLeftHalf);
 		var newWindowRect = window.rect();
@@ -89,7 +89,7 @@ S.bindAll({
 			window.doOperation(windowToLeftScreenRightHalf);
 		}
 	},
-	'1:ctrl': windowToLeftThird,
-	'2:ctrl': windowToMiddleThird,
-	'3:ctrl': windowToRightThird,
+	'1:alt': windowToLeftThird,
+	'2:alt': windowToMiddleThird,
+	'3:alt': windowToRightThird,
 });
