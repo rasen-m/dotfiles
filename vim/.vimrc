@@ -54,7 +54,7 @@ let g:used_javascript_libs='underscore,jquery,angularjs,angularui,angularuiroute
 " [ */ othree/javascript-libraries-syntax.vim ]
 
 " [ /* window default ]
-set lines=63 columns=89
+" set lines=46 columns=89
 set guifont=Monospace\ 14
 " [ */ window default ]
 
