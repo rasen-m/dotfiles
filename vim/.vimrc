@@ -15,6 +15,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'orangeT/vim-csharp'
 call vundle#end()
 " [ */ vundle ]
 
