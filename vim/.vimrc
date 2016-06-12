@@ -54,11 +54,6 @@ let NERDRemoveExtraSpaces=1
 let g:used_javascript_libs='underscore,jquery,angularjs,angularui,angularuirouterreact,flux,requirejs,handlebars'
 " [ */ othree/javascript-libraries-syntax.vim ]
 
-" [ /* window default ]
-" set lines=46 columns=89
-set guifont=Monospace\ 14
-" [ */ window default ]
-
 " [ /* folding ]
 set foldmethod=marker
 set foldmarker=/*,*/
@@ -107,6 +102,10 @@ set history=50
 set hlsearch
 set incsearch
 set cursorline
+
+" Font
+" Terminal will handle their own fonts
+set guifont=Monospace\ 14
 
 " Stop adding end-of-file newline char
 set binary
