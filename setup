@@ -42,8 +42,6 @@ if [ ! -d $HOME/.vimtmp ]; then
   mkdir ~/.vimtmp
 fi
 
-vim +PluginInstall +qall
-
 ################################################################################
 echo "Setting up bash..."
 
@@ -76,6 +74,9 @@ fi
 #change home directory to windowhome directory
 #mount -f "$USERPROFILE" ~
 #mount -m > /etc/fstab
+
+################################################################################
+vim +PluginInstall +qall
 
 ################################################################################
 source ~/.bashrc
