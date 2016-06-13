@@ -234,6 +234,9 @@ vnoremap y "+y
 " Press Space to turn off highlighting and clear any message already displayed
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
+" K to split line
+nnoremap K i<CR><Esc>
+
 command Q q
 command WQ wq
 command Wq wq
