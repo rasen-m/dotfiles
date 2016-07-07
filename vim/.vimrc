@@ -19,6 +19,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'burnettk/vim-angular'
 
 " C#
 Plugin 'OmniSharp/omnisharp-vim'
@@ -48,6 +49,7 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_auto_jump = 0
 let g:syntastic_javascript_checkers = ['jsl']
 let b:syntastic_skip_checks = 0
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 " [ */ syntastic ]
 
 " [ /* omnisharp ]
