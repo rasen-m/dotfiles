@@ -214,12 +214,18 @@ let g:used_javascript_libs='underscore,jquery,angularjs,angularui,angularuiroute
 " [ */ othree/javascript-libraries-syntax.vim ]
 
 " [ /* folding ]
+" set nofoldenable
+
 " set foldmethod=marker
 " set foldmarker=/*,*/
-set foldmethod=indent   
-set foldnestmax=10
+
+" set foldmethod=indent   
+" set foldnestmax=10
+" set foldlevel=2
+
+set foldmethod=syntax   
+set foldnestmax=4
 set foldlevel=2
-" set nofoldenable
 " [ */ folding ]
 
 " [ /* commands and mappings ]
