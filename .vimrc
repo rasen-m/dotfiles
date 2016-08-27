@@ -225,7 +225,7 @@ let g:used_javascript_libs='underscore,jquery,angularjs,angularui,angularuiroute
 
 set foldmethod=syntax   
 set foldnestmax=4
-set foldlevel=2
+set foldlevel=1
 " [ */ folding ]
 
 " [ /* commands and mappings ]
