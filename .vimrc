@@ -45,11 +45,19 @@ filetype plugin indent on
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1 
+let g:syntastic_check_on_wq = 1
 let g:syntastic_auto_jump = 0
 let g:syntastic_javascript_checkers = ['jsl']
 let b:syntastic_skip_checks = 0
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+let g:syntastic_html_tidy_ignore_errors=["proprietary attribute" ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected", "lacks \"src\" attribute"]
+
+let g:airline#extensions#whitespace#mixed_indent_algo = 2
+" indent: mixed indent within a line
+" long:   overlong lines
+" trailing: trailing whitespace
+" mixed-indent-file: different indentation in different lines
+" let g:airline#extensions#whitespace#checks = ['indent', 'trailing', 'long', 'mixed-indent-file']
+let g:airline#extensions#whitespace#checks = []
 " [ */ syntastic ]
 
 " [ /* omnisharp ]
@@ -224,7 +232,7 @@ let g:used_javascript_libs='underscore,jquery,angularjs,angularui,angularuiroute
 " set foldlevel=2
 
 set foldmethod=syntax   
-set foldnestmax=4
+set foldnestmax=3
 set foldlevel=1
 " [ */ folding ]
 
