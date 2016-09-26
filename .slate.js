@@ -1,11 +1,3 @@
-var global = {
-	menuBarHeight: 23,
-	threshold: 5,
-	yieldApps: [
-		'Terminal',
-	],
-};
-
 S.configAll({
   'defaultToCurrentScreen' : true,
   'secondsBetweenRepeat' : 0.1,
@@ -51,85 +43,53 @@ var windowToRightScreenLeftHalf = S.operation('push', {
 	'screen': 1
 });
 
-S.bindAll({
-	'up:ctrl': function (windowObject) {
-		var windowRect = windowObject.rect();
-		var screenRect = windowObject.screen().rect();
-		var yield = _.contains(global.yieldApps, windowObject.app().name());
-
-		if (isAtTopHalfOfScreen(windowRect, screenRect, yield)) {
-			windowObject.doOperation(windowToFullScreen);
-		} else {
-			windowObject.doOperation(windowToTopHalf);
-		}
-	},
-	'right:ctrl': function (windowObject) {
-		var windowRect = windowObject.rect();
-		var screenRect = windowObject.screen().rect();
-		var yield = _.contains(global.yieldApps, windowObject.app().name());
-
-		if (isAtRightHalfOfScreen(windowRect, screenRect, yield)) {
-			windowObject.doOperation(windowToRightScreenLeftHalf);
-		} else {
-			windowObject.doOperation(windowToRightHalf);
-		}
-	},
-	'down:ctrl': windowToBottomHalf,
-	'left:ctrl': function (windowObject) {
-		var windowRect = windowObject.rect();
-		var screenRect = windowObject.screen().rect();
-		var yield = _.contains(global.yieldApps, windowObject.app().name());
-
-		if (isAtLeftHalfOfScreen(windowRect, screenRect, yield)) {
-			windowObject.doOperation(windowToLeftScreenRightHalf);
-		} else {
-			windowObject.doOperation(windowToLeftHalf);
-		}
-	},
+var windowToLeftThird = S.operation('push', {
+	'direction': 'left',
+	'style': 'bar-resize: screenSizeX/3',
 });
 
-function isEqual(i, j, yield) {
-	finetune = yield ? 3 : 1;
+var windowToMiddleThird = S.operation('move', {
+	'x' : 'screenOriginX+(screenSizeX/3)',
+  'y' : 'screenOriginY',
+	'width' : 'screenSizeX/3',
+  'height' : 'screenSizeY',
+});
 
-	return (global.threshold * finetune) >= Math.abs(i - j);
-}
+var windowToRightThird = S.operation('push', {
+	'direction': 'right',
+	'style': 'bar-resize: screenSizeX/3',
+});
 
-function isAtTopHalfOfScreen(windowRect, screenRect, yield) {
-	var compensatedScreenY = screenRect.y + global.menuBarHeight;
-	var compensatedScreenHeight = screenRect.height - global.menuBarHeight;
+S.bindAll({
+	'up:alt': windowToFullScreen,
+	'right:alt': function (window) {
+		var oldWindowRect = window.rect();
+		window.doOperation(windowToRightHalf);
+		var newWindowRect = window.rect();
 
-	return isEqual(screenRect.x, windowRect.x, yield) 
-	&& isEqual(compensatedScreenY, windowRect.y, yield) 
-	&& isEqual(compensatedScreenHeight / 2, windowRect.height, yield) 
-	&& isEqual(screenRect.width, windowRect.width, yield);
-}
+		if (_.isEqual(oldWindowRect, newWindowRect) && (window.screen().id() == 0)) {
+			window.doOperation(windowToRightScreenLeftHalf);
+		}
+	},
+	'down:alt': function (window) {
+		var oldWindowRect = window.rect();
+		window.doOperation(windowToTopHalf);
+		var newWindowRect = window.rect();
 
-function isAtRightHalfOfScreen(windowRect, screenRect, yield) {
-	var compensatedScreenY = screenRect.y + global.menuBarHeight;
-	var compensatedScreenHeight = screenRect.height - global.menuBarHeight;
+		if (_.isEqual(oldWindowRect, newWindowRect)) {
+			window.doOperation(windowToBottomHalf);
+		}
+	},
+	'left:alt': function (window) {
+		var oldWindowRect = window.rect();
+		window.doOperation(windowToLeftHalf);
+		var newWindowRect = window.rect();
 
-	return isEqual(screenRect.x + (screenRect.width / 2), windowRect.x, yield) 
-	&& isEqual(compensatedScreenY, windowRect.y, yield) 
-	&& isEqual(compensatedScreenHeight, windowRect.height, yield) 
-	&& isEqual(screenRect.width / 2, windowRect.width, yield);
-}
-
-function isAtRightThirdOfScreen(windowRect, screenRect, yield) {
-	var compensatedScreenY = screenRect.y + global.menuBarHeight;
-	var compensatedScreenHeight = screenRect.height - global.menuBarHeight;
-
-	return isEqual(screenRect.x + ((screenRect.width / 3) * 2), windowRect.x, yield) 
-	&& isEqual(compensatedScreenY, windowRect.y, yield) 
-	&& isEqual(compensatedScreenHeight, windowRect.height, yield) 
-	&& isEqual(screenRect.width / 3, windowRect.width, yield);
-}
-
-function isAtLeftHalfOfScreen(windowRect, screenRect, yield) {
-	var compensatedScreenY = screenRect.y + global.menuBarHeight;
-	var compensatedScreenHeight = screenRect.height - global.menuBarHeight;
-
-	return isEqual(screenRect.x, windowRect.x, yield) 
-	&& isEqual(compensatedScreenY, windowRect.y, yield) 
-	&& isEqual(compensatedScreenHeight, windowRect.height, yield) 
-	&& isEqual(screenRect.width / 2, windowRect.width, yield);
-}
+		if (_.isEqual(oldWindowRect, newWindowRect) && (window.screen().id() == 1)) {
+			window.doOperation(windowToLeftScreenRightHalf);
+		}
+	},
+	'1:alt': windowToLeftThird,
+	'2:alt': windowToMiddleThird,
+	'3:alt': windowToRightThird,
+});
