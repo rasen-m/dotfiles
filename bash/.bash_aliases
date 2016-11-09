@@ -2,8 +2,7 @@
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
 
 # commonly accessed folders
-alias .d='cd ~/_dev/'
-alias .s='cd ~/Dropbox/_studies/'
+alias .r='cd ~/_repo/'
 
 # print aliases
 alias .ssh='tail -n12 ~/.bash_aliases'
