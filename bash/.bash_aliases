@@ -10,5 +10,4 @@ alias .alias='cat ~/.bash_aliases'
 
 # working ssh
 alias .ssh1='ssh root@104.131.128.118'
-alias .ssh2='ssh root@128.199.86.160'
-alias .ssh3='ssh root@128.199.183.248'
+alias .ssh2='ssh root@128.199.197.87'
