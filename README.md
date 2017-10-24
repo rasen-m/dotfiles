@@ -1,9 +1,14 @@
-sean's dotfile
+# Sean's Dotfiles
 
-included an install bash script to help me transfer the files and settings to the user home directory
+Not using it anymore these days as I have switched to PC for my main development environment.
 
-./setup
+## Getting Started
+I included a bash script to help me transfer the files and settings to the user home directory
 
-or
-
+```bash
 ./setup fresh
+```
+If you messed up the setting, to re-setup:
+```bash
+./setup
+```
