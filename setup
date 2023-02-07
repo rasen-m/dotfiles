@@ -4,9 +4,11 @@
 # https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 # https://ohmyz.sh
 
-# ################################################################################
+uname=`uname`
+
+################################################################################
 # Git.
-# ################################################################################
+################################################################################
 echo "Copying git files..."
 
 cp git/.gitignore ~
@@ -17,14 +19,19 @@ git config --global color.ui auto
 git config --global user.name "Sean Su"
 # git config --global user.email "seansu@me.com"
 git config --global user.email "sean.su@unity3d.com"
+git config --global help.autocorrect 20
 
 # Aliases
 git config --global alias.st "status"
 git config --global alias.co "checkout"
+git config --global alias.a "add"
+git config --global alias.p "pull"
 git config --global alias.c "commit"
 git config --global alias.d "diff"
 
 git config --global alias.b "branch"
+git config --global alias.ba "branch -a"
+git config --global alias.br "branch -r"
 
 git config --global alias.l "log"
 git config --global alias.lo "log --oneline"
@@ -49,7 +56,6 @@ git config --global alias.ll "log --graph --decorate --oneline --abbrev-commit -
 # fi
 
 # ################################################################################
-# uname=`uname`
 
 # if [[ "$uname" == 'Linux' ]]; then
 #   ./color/solarized_dark_linux_setup
@@ -70,13 +76,25 @@ git config --global alias.ll "log --graph --decorate --oneline --abbrev-commit -
 ################################################################################
 
 ################################################################################
-# Oh My Zsh
+# Powerline Font.
+################################################################################
+git clone https://github.com/powerline/fonts.git --depth=1
+fonts/install.sh
+rm -rf fonts
+
+if [[ "$uname" == 'Darwin' ]]; then
+  echo "Run 'Solarized Dark (Powerline).terminal' and set that as default settings."
+fi
+
+################################################################################
+# Oh My Zsh.
 ################################################################################
 # Download
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Add spaceship theme.
 # https://github.com/spaceship-prompt/spaceship-prompt
+# https://github.com/ohmyzsh/ohmyzsh/wiki/External-themes
 # https://spaceship-prompt.sh
 brew install spaceship
 
