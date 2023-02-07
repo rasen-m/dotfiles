@@ -1,3 +1,0 @@
-# composer, php
-PATH=$PATH:$HOME/.composer/vendor/bin
-export PATH

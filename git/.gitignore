@@ -6,6 +6,10 @@
 .Trashes
 ._*
 
+# VS Code
+.vscode
+*.code-workspace
+
 # Icon must ends with two \r
 Icon
 

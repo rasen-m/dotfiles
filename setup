@@ -1,82 +1,85 @@
-#!/bin/bash
+################################################################################
+# Reference.
+################################################################################
+# https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
+# https://ohmyz.sh
 
-if [ ! -z $1 ] && [ $1 = "fresh" ]; then
-  echo "Remove all existing dotfiles..."
+# ################################################################################
+# Git.
+# ################################################################################
+echo "Copying git files..."
 
-  sudo rm -R ~/.vim
-  sudo rm ~/.vimrc
-  sudo rm ~/.gitconfig
-  sudo rm ~/.git-completion.bash
-  sudo rm ~/.git-prompt.sh
-  sudo rm ~/.bash_aliases 
-  sudo rm ~/.bash_git_settings 
-  sudo rm ~/.bash_path 
-  sudo rm ~/.gitignore_global
-fi
+cp git/.gitignore ~
+
+git config --global core.excludesfile ~/.gitignore
+git config --global core.editor vim
+git config --global color.ui auto
+git config --global user.name "Sean Su"
+# git config --global user.email "seansu@me.com"
+git config --global user.email "sean.su@unity3d.com"
+
+# Aliases
+git config --global alias.st "status"
+git config --global alias.co "checkout"
+git config --global alias.c "commit"
+git config --global alias.d "diff"
+
+git config --global alias.b "branch"
+
+git config --global alias.l "log"
+git config --global alias.lo "log --oneline"
+git config --global alias.ll "log --graph --decorate --oneline --abbrev-commit --all"
+
+# ################################################################################
+# echo "Setting up vim..."
+
+# cp -R vim/.vim ~
+# cp vim/.vimrc ~
+
+# if [ ! -d $HOME/.vim/bundle ]; then
+#   mkdir ~/.vim/bundle
+# fi
+
+# if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
+#   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# fi
+
+# if [ ! -d $HOME/.vimtmp ]; then
+#   mkdir ~/.vimtmp
+# fi
+
+# ################################################################################
+# uname=`uname`
+
+# if [[ "$uname" == 'Linux' ]]; then
+#   ./color/solarized_dark_linux_setup
+# fi
+
+# if [[ "$uname" == 'Darwin' ]]; then
+#   echo "Run 'solarized_dark_osx_setup.terminal' and set that as default settings."
+# fi
+
+# # Windows Cygwin color setup
+# #cat ./.minttyrc.dark >> ~/.minttyrc
+# #change home directory to windowhome directory
+# #mount -f "$USERPROFILE" ~
+# #mount -m > /etc/fstab
+
+# ################################################################################
+# vim +PluginInstall +qall
+################################################################################
 
 ################################################################################
-echo "Setting up git..."
-
-cp git/.gitconfig ~
-cp git/.git-completion.bash ~
-cp git/.git-prompt.sh ~
-cp git/.gitignore_global ~
-
-git config --global core.excludesfile ~/.gitignore_global
-
+# Oh My Zsh
 ################################################################################
-echo "Setting up vim..."
+# Download
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-cp -R vim/.vim ~
-cp vim/.vimrc ~
+# Add spaceship theme.
+# https://github.com/spaceship-prompt/spaceship-prompt
+# https://spaceship-prompt.sh
+brew install spaceship
 
-if [ ! -d $HOME/.vim/bundle ]; then
-  mkdir ~/.vim/bundle
-fi
-
-if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
-  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
-
-if [ ! -d $HOME/.vimtmp ]; then
-  mkdir ~/.vimtmp
-fi
-
-################################################################################
-echo "Setting up bash..."
-
-cp bash/.bash_aliases ~
-cp bash/.bash_git_settings ~
-cp bash/.bash_path ~
-
-if [ ! -f $HOME/.bash_profile ]; then
-  cp bash/.bash_profile ~
-fi
-
-if [ ! -f $HOME/.itsykumo_dotted ]; then
-  cat bash/bashrc_setup >> ~/.bashrc
-  touch ~/.itsykumo_dotted
-fi
-
-################################################################################
-uname=`uname`
-
-if [[ "$uname" == 'Linux' ]]; then
-  ./color/solarized_dark_linux_setup
-fi
-
-if [[ "$uname" == 'Darwin' ]]; then
-  echo "Run 'solarized_dark_osx_setup.terminal' and set that as default settings."
-fi
-
-# Windows Cygwin color setup
-#cat ./.minttyrc.dark >> ~/.minttyrc
-#change home directory to windowhome directory
-#mount -f "$USERPROFILE" ~
-#mount -m > /etc/fstab
-
-################################################################################
-vim +PluginInstall +qall
-
-################################################################################
-source ~/.bashrc
+# Custom files.
+cp oh-my-zsh/spaceship.zsh ~/.oh-my-zsh/custom
+cp oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom
