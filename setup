@@ -78,9 +78,11 @@ git config --global alias.ll "log --graph --decorate --oneline --abbrev-commit -
 ################################################################################
 # Powerline Font.
 ################################################################################
-git clone https://github.com/powerline/fonts.git --depth=1
-fonts/install.sh
-rm -rf fonts
+# git clone https://github.com/powerline/fonts.git --depth=1
+# fonts/install.sh
+# rm -rf fonts
+
+echo "Run and install 'Menlo for Powerline.ttf'"
 
 if [[ "$uname" == 'Darwin' ]]; then
   echo "Run 'Solarized Dark (Powerline).terminal' and set that as default settings."
