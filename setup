@@ -103,3 +103,4 @@ brew install spaceship
 # Custom files.
 cp oh-my-zsh/spaceship.zsh ~/.oh-my-zsh/custom
 cp oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom
+cp oh-my-zsh/paths.zsh ~/.oh-my-zsh/custom
