@@ -2,3 +2,9 @@ ZSH_THEME=""
 source "/opt/homebrew/opt/spaceship/spaceship.zsh"
 
 SPACESHIP_PROMPT_ADD_NEWLINE=false
+
+SPACESHIP_GCLOUD_SHOW=false
+
+SPACESHIP_KUBECTL_SHOW=true
+SPACESHIP_KUBECTL_VERSION_SHOW=false
+SPACESHIP_KUBECTL_SYMBOL='☸️  '
