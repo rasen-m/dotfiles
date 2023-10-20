@@ -1,10 +1,10 @@
+#!/bin/bash
+
 ################################################################################
 # Reference.
 ################################################################################
 # https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 # https://ohmyz.sh
-
-uname=`uname`
 
 ################################################################################
 # Git.
@@ -17,8 +17,7 @@ git config --global core.excludesfile ~/.gitignore
 git config --global core.editor vim
 git config --global color.ui auto
 git config --global user.name "Sean Su"
-# git config --global user.email "seansu@me.com"
-# git config --global user.email "sean.su@unity3d.com"
+git config --global user.email "seansu@me.com"
 git config --global help.autocorrect 20
 git config --global push.default current
 
@@ -38,23 +37,26 @@ git config --global alias.l "log"
 git config --global alias.lo "log --oneline"
 git config --global alias.ll "log --graph --decorate --oneline --abbrev-commit --all"
 
-# ################################################################################
-# echo "Setting up vim..."
+################################################################################
+echo "Setting up vim..."
 
-# cp -R vim/.vim ~
-# cp vim/.vimrc ~
+cp -R vim/.vim ~
+cp vim/.vimrc ~
 
-# if [ ! -d $HOME/.vim/bundle ]; then
-#   mkdir ~/.vim/bundle
-# fi
+if [ ! -d $HOME/.vim/bundle ]; then
+  mkdir ~/.vim/bundle
+fi
 
-# if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
-#   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-# fi
+if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
 
-# if [ ! -d $HOME/.vimtmp ]; then
-#   mkdir ~/.vimtmp
-# fi
+if [ ! -d $HOME/.vimtmp ]; then
+  mkdir ~/.vimtmp
+fi
+
+# https://github.com/VundleVim/Vundle.vim
+vim +PluginInstall +qall
 
 # ################################################################################
 
@@ -62,46 +64,42 @@ git config --global alias.ll "log --graph --decorate --oneline --abbrev-commit -
 #   ./color/solarized_dark_linux_setup
 # fi
 
-# if [[ "$uname" == 'Darwin' ]]; then
-#   echo "Run 'solarized_dark_osx_setup.terminal' and set that as default settings."
-# fi
-
-# # Windows Cygwin color setup
-# #cat ./.minttyrc.dark >> ~/.minttyrc
-# #change home directory to windowhome directory
-# #mount -f "$USERPROFILE" ~
-# #mount -m > /etc/fstab
-
-# ################################################################################
-# vim +PluginInstall +qall
-################################################################################
+if [[ "$uname" == 'Darwin' ]]; then
+  echo "Run 'solarized_dark_osx_setup.terminal' and set that as default settings."
+fi
 
 ################################################################################
 # Powerline Font.
 ################################################################################
-# git clone https://github.com/powerline/fonts.git --depth=1
-# fonts/install.sh
-# rm -rf fonts
+echo "Setting up Powerline font..."
 
-echo "Run and install 'Menlo for Powerline.ttf'"
-
-if [[ "$uname" == 'Darwin' ]]; then
+if [[ $(uname) == 'Linux' ]]; then
+  sudo apt install fonts-firacode
+	echo "If on Window Linux Subsystem, the fonts got to be setup on the Window side instead."
+	echo "Right-click on the WSL terminal's title-bar > Settings > ..."
+	echo "Also, set the Color scheme to 'Solarized Dark'."
+elif [[ $(uname) == 'Darwin' ]]; then
   echo "Run 'Solarized Dark (Powerline).terminal' and set that as default settings."
 fi
 
 ################################################################################
 # Oh My Zsh.
 ################################################################################
+echo "Setting up Oh My Zsh..."
 # Download
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Add spaceship theme.
+# Spaceship theme.
 # https://github.com/spaceship-prompt/spaceship-prompt
 # https://github.com/ohmyzsh/ohmyzsh/wiki/External-themes
 # https://spaceship-prompt.sh
-brew install spaceship
+if [[ "$uname" == 'Linux' ]]; then
+  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+elif [[ "$uname" == 'Darwin' ]]; then
+  brew install spaceship
+fi
 
 # Custom files.
-cp oh-my-zsh/spaceship.zsh ~/.oh-my-zsh/custom
+cp oh-my-zsh/spaceshiprc.zsh ~/.spaceshiprc.zsh
 cp oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom
 cp oh-my-zsh/paths.zsh ~/.oh-my-zsh/custom

@@ -283,6 +283,11 @@ set hlsearch
 set incsearch
 set cursorline
 
+" Annoying sound.
+set belloff=all
+set visualbell
+set noerrorbells
+
 " Font
 " Terminal will handle their own fonts
 set guifont=Monospace\ 14
