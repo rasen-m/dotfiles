@@ -46,15 +46,15 @@ cp -R vim/.vim ~
 cp vim/.vimrc ~
 
 if [ ! -d $HOME/.vim/bundle ]; then
-  mkdir ~/.vim/bundle
+    mkdir ~/.vim/bundle
 fi
 
 if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
-  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
 if [ ! -d $HOME/.vimtmp ]; then
-  mkdir ~/.vimtmp
+    mkdir ~/.vimtmp
 fi
 
 # https://github.com/VundleVim/Vundle.vim
@@ -64,27 +64,31 @@ vim +PluginInstall +qall
 # Color.
 ################################################################################
 if [[ $(uname) == 'Darwin' || $(uname) == 'Linux' ]]; then
-  echo "Setting up color..."
-fi
+    echo "Setting up color..."
 
-if [[ "$uname" == 'Darwin' ]]; then
-  echo "Run 'solarized_dark_osx_setup.terminal' and set that as default settings."
+    if [[ "$uname" == 'Darwin' ]]; then
+        echo "Run 'solarized_dark_osx_setup.terminal' and set that as default settings."
+    fi
 fi
 
 ################################################################################
 # Powerline Font.
 ################################################################################
 if [[ $(uname) == 'Darwin' || $(uname) == 'Linux' ]]; then
-  echo "Setting up font..."
-fi
+    echo "Setting up font..."
 
-if [[ $(uname) == 'Linux' ]]; then
-  sudo apt install fonts-firacode
-	echo "If on Window Linux Subsystem, the fonts got to be setup on the Window side instead."
-	echo "Right-click on the WSL terminal's title-bar > Settings > ..."
-	echo "Also, set the Color scheme to 'Solarized Dark'."
-elif [[ $(uname) == 'Darwin' ]]; then
-  echo "Run 'Solarized Dark (Powerline).terminal' and set that as default settings."
+    if [[ $(uname) == 'Linux' ]]; then
+        sudo apt install fonts-firacode
+        echo "If on Window Linux Subsystem, the fonts got to be setup on the Window side instead."
+        echo "Right-click on the WSL terminal's title-bar > Settings > ..."
+        echo "Also, set the Color scheme to 'Solarized Dark'."
+
+        echo "If this is on a Windows WSL and the color isn't showing, check out gitbash_solarized."
+    elif [[ $(uname) == 'Darwin' ]]; then
+        brew tap homebrew/cask-fonts
+        brew install --cask font-fira-code
+        echo "Run 'Solarized Dark (Powerline).terminal' and set that as default settings."
+    fi
 fi
 
 ################################################################################
@@ -92,6 +96,7 @@ fi
 ################################################################################
 if [[ $(uname) == 'Darwin' || $(uname) == 'Linux' ]]; then
     echo "Setting up Oh My Zsh..."
+
     # Download
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -100,9 +105,9 @@ if [[ $(uname) == 'Darwin' || $(uname) == 'Linux' ]]; then
     # https://github.com/ohmyzsh/ohmyzsh/wiki/External-themes
     # https://spaceship-prompt.sh
     if [[ "$uname" == 'Linux' ]]; then
-    git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+        git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
     elif [[ "$uname" == 'Darwin' ]]; then
-    brew install spaceship
+        brew install spaceship
     fi
 
     # Custom files.
