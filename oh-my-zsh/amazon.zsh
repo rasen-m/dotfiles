@@ -1,7 +1,8 @@
 # /bin/bash
 
 source /Users/seanisu/.brazil_completion/zsh_completion
-export DEV=true
+export DEV_ACCOUNT_ID=992382445274
+# export DEV=true
 
 # Aliases - General.
 alias .w='cd ~/workplace/'
