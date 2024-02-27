@@ -7,7 +7,6 @@ export DEV_ACCOUNT_ID=992382445274
 # Aliases - General.
 alias .w='cd ~/workplace/'
 alias bind='bindkey'
-alias .c='ssh seanisu-cloud-desktop.aka.corp.amazon.com'
 
 alias nds='ninja-dev-sync' 
 alias auth='mwinit -o && kinit -f' 
@@ -18,10 +17,9 @@ alias cr-desc="cr --description $HOME/.config/cr/cr-desc.md"
 
 alias adacu='ada_credentials_update() { ada credentials update --account=$1 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --once }; ada_credentials_update'
 
-# Aliases - Super.
-
 alias .1='mwinit -o' 
 alias .2='adacu 992382445274'
+alias .3='ssh seanisu-cloud-desktop.aka.corp.amazon.com'
 
 # alias .df='export DEV=false'
 # alias .dt='export DEV=true'
