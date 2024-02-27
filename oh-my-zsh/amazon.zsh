@@ -18,8 +18,13 @@ alias cr-desc="cr --description $HOME/.config/cr/cr-desc.md"
 
 alias adacu='ada_credentials_update() { ada credentials update --account=$1 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --once }; ada_credentials_update'
 
-alias .df='export DEV=false'
-alias .dt='export DEV=true'
+# Aliases - Super.
+
+alias .1='mwinit -o' 
+alias .2='adacu 992382445274'
+
+# alias .df='export DEV=false'
+# alias .dt='export DEV=true'
   
 # Aliases - Brazil.
 alias b='brazil' 
