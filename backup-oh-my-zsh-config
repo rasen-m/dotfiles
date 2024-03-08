@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Backup oh-my-zsh files..."
+
+cp ~/.oh-my-zsh/custom/* oh-my-zsh/

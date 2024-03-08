@@ -19,7 +19,8 @@ alias adacu='ada_credentials_update() { ada credentials update --account=$1 --pr
 
 alias .1='mwinit -o' 
 alias .2='adacu 992382445274'
-alias .3='ssh seanisu-cloud-desktop.aka.corp.amazon.com'
+alias .3='ada credentials serve --account 992382445274 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE'
+alias .0='ssh seanisu-cloud-desktop.aka.corp.amazon.com'
 
 # alias .df='export DEV=false'
 # alias .dt='export DEV=true'

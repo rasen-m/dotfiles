@@ -114,6 +114,7 @@ if [[ $(uname) == 'Darwin' || $(uname) == 'Linux' ]]; then
 	cp oh-my-zsh/spaceshiprc.zsh ~/.spaceshiprc.zsh
 	cp oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom
 	cp oh-my-zsh/paths.zsh ~/.oh-my-zsh/custom
+	cp oh-my-zsh/amazon.zsh ~/.oh-my-zsh/custom
 
 	# Setup Spaceship prompt.
 	if [[ $(uname) == 'Linux' ]]; then
