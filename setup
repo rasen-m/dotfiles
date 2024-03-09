@@ -104,9 +104,9 @@ if [[ $(uname) == 'Darwin' || $(uname) == 'Linux' ]]; then
 	# https://github.com/spaceship-prompt/spaceship-prompt
 	# https://github.com/ohmyzsh/ohmyzsh/wiki/External-themes
 	# https://spaceship-prompt.sh
-	if [[ "$uname" == 'Linux' ]]; then
+	if [[ $(uname) == 'Linux' ]]; then
 			git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-	elif [[ "$uname" == 'Darwin' ]]; then
+	elif [[ $(uname) == 'Darwin' ]]; then
 			brew install spaceship
 	fi
 
@@ -118,8 +118,10 @@ if [[ $(uname) == 'Darwin' || $(uname) == 'Linux' ]]; then
 
 	# Setup Spaceship prompt.
 	if [[ $(uname) == 'Linux' ]]; then
-		echo "source $(brew --prefix)/opt/spaceship/spaceship.zsh" >>! ~/.zshrc
-	elif [[ "$uname" == 'Darwin' ]]; then
 		ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+		echo "ZSH_THEME=\"spaceship\"" >>! ~/.zshrc
+		echo "source ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme" >>! ~/.zshrc
+	elif [[ $(uname) == 'Darwin' ]]; then
+		echo "source $(brew --prefix)/opt/spaceship/spaceship.zsh" >>! ~/.zshrc
 	fi
 fi

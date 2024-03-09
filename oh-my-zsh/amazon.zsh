@@ -1,6 +1,6 @@
 # /bin/bash
 
-source /Users/seanisu/.brazil_completion/zsh_completion
+source $HOME/.brazil_completion/zsh_completion
 export DEV_ACCOUNT_ID=992382445274
 # export DEV=true
 
