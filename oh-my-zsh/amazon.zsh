@@ -3,6 +3,8 @@
 source $HOME/.brazil_completion/zsh_completion
 export DEV_ACCOUNT_ID=992382445274
 # export DEV=true
+# alias .df='export DEV=false'
+# alias .dt='export DEV=true'
 
 # Aliases - General.
 alias .w='cd ~/workplace/'
@@ -21,10 +23,7 @@ alias .1='mwinit -o'
 alias .2='adacu 992382445274'
 alias .3='ada credentials serve --account 992382445274 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE'
 alias .0='ssh seanisu-cloud-desktop.aka.corp.amazon.com'
-
-# alias .df='export DEV=false'
-# alias .dt='export DEV=true'
-  
+ 
 # Aliases - Brazil.
 alias b='brazil' 
 alias bb='brazil-build' 

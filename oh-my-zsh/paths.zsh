@@ -1,5 +1,6 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.toolbox/bin:$PATH
+export PATH=/apollo/env/envImprovement/bin:$PATH
 
 export LDFLAGS="-L/opt/homebrew/opt/libffi/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
