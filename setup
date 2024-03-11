@@ -29,8 +29,15 @@ echo "Linux distribution: $distribution"
 ################################################################################
 
 if [[ $(uname) == 'Linux' ]]; then
+	echo "Install Linux specific installations for $distribution."
+
+	if [[ "$distribution" == 'Amazon Linux' ]]; then
 		sudo yum install expect
-# elif [[ $(uname) == 'Darwin' ]]; then
+	else
+		sudo apt install expect
+	fi
+elif [[ $(uname) == 'Darwin' ]]; then
+		echo "Install OSX specific installations."
 fi
 
 ################################################################################
@@ -105,12 +112,27 @@ if [[ $(uname) == 'Darwin' || $(uname) == 'Linux' ]]; then
 	echo "Setting up font..."
 
 	if [[ $(uname) == 'Linux' ]]; then
-		sudo apt install fonts-firacode
-		echo "If on Window Linux Subsystem, the fonts got to be setup on the Window side instead."
-		echo "Right-click on the WSL terminal's title-bar > Settings > ..."
-		echo "Also, set the Color scheme to 'Solarized Dark'."
+		if [[ "$distribution" == 'Amazon Linux' ]]; then
+			FIRA_CODE_URL="https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip"
+			FONT_DIR="/tmp/fira_code_fonts"
+			mkdir -p "$FONT_DIR"
+			wget -O "$FONT_DIR/Fira_Code.zip" "$FIRA_CODE_URL"
+			unzip "$FONT_DIR/Fira_Code.zip" -d "$FONT_DIR"
+			sudo mv "$FONT_DIR/"*.ttf /usr/share/fonts/
+			sudo fc-cache -f -v
+			rm -rf "$FONT_DIR"
+			#sudo yum install fonts-firacode
+		else
+			sudo apt install fonts-firacode
 
-		echo "If this is on a Windows WSL and the color isn't showing, check out gitbash_solarized."
+			if [[ "$distribution" == *"WSL"* ]]; then
+				echo "On Window Linux Subsystem, the fonts got to be setup on the Window side instead."
+				echo "Right-click on the WSL terminal's title-bar > Settings > ..."
+				echo "Also, set the Color scheme to 'Solarized Dark'."
+
+				echo "If the color isn't showing, check out gitbash_solarized."
+			fi
+		fi
 	elif [[ $(uname) == 'Darwin' ]]; then
 		brew tap homebrew/cask-fonts
 		brew install --cask font-fira-code
