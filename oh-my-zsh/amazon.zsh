@@ -1,10 +1,23 @@
 # /bin/bash
 
+# Sources.
+
 source $HOME/.brazil_completion/zsh_completion
+
+# Exports
 export DEV_ACCOUNT_ID=992382445274
-# export DEV=true
-# alias .df='export DEV=false'
-# alias .dt='export DEV=true'
+
+# Functions
+
+function _ada_completer {
+	local first_password='get fucking fit'
+	expect -c "
+		spawn mwinit -o
+		expect \"PIN for seanisu:\"
+		send \"$first_password\r\"
+		interact
+	"
+}
 
 # Aliases - General.
 alias .w='cd ~/workplace/'
@@ -19,7 +32,8 @@ alias cr-desc="cr --description $HOME/.config/cr/cr-desc.md"
 
 alias adacu='ada_credentials_update() { ada credentials update --account=$1 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --once }; ada_credentials_update'
 
-alias .1='mwinit -o' 
+# alias .1='mwinit -o' 
+alias .1='_ada_completer'
 alias .2='adacu 992382445274'
 alias .3='ada credentials serve --account 992382445274 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE'
 alias .0='ssh seanisu-cloud-desktop.aka.corp.amazon.com'
@@ -74,3 +88,4 @@ function _cdk_completer {
 
 complete -F _cdk_completer bb
 complete -F _cdk_completer brazil-build
+
