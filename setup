@@ -7,6 +7,33 @@
 # https://ohmyz.sh
 
 ################################################################################
+# Setup.
+################################################################################
+
+get_linux_distribution() {
+	if [ -r /etc/os-release ]; then
+			. /etc/os-release
+			echo "$NAME"
+	elif [ -r /etc/*-release ]; then
+			grep -m 1 -E '^ID=' /etc/*-release | cut -d= -f2
+	else
+			echo "Unknown"
+	fi
+}
+
+distribution=$(get_linux_distribution)
+echo "Linux distribution: $distribution"
+
+################################################################################
+# Other System Specific Installations.
+################################################################################
+
+if [[ $(uname) == 'Linux' ]]; then
+		sudo yum install expect
+# elif [[ $(uname) == 'Darwin' ]]; then
+fi
+
+################################################################################
 # Git.
 ################################################################################
 echo "Copying git files..."
