@@ -90,16 +90,8 @@ complete -F _cdk_completer bb
 complete -F _cdk_completer brazil-build
 
 # Additional Team Aliases.
-if [[ $(uname) == 'Linux' ]]; then
-	if [[ "$distribution" == 'Amazon Linux' ]]; then
-		alias .mes="cd $HOME/SeasonalEventsMetadataService/src"
-		alias .mcms="cd $HOME/MarketingContentManagementService/src"
-		alias .m3s="cd $HOME/MarketingMerchandizingManagementService/src"
-	fi
-elif [[ $(uname) == 'Darwin' ]]; then
-		alias .mes="cd $HOME/workplace/SeasonalEventsMetadataService/src"
-		alias .mcms="cd $HOME/workplace/MarketingContentManagementService/src"
-		alias .m3s="cd $HOME/workplace/MarketingMerchandizingManagementService/src"
-fi
+alias .mes="cd $HOME/workplace/SeasonalEventsMetadataService/src"
+alias .mcms="cd $HOME/workplace/MarketingContentManagementService/src"
+alias .m3s="cd $HOME/workplace/MarketingMerchandizingManagementService/src"
 
 alias .cdk="cd *CDK"
