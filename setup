@@ -168,26 +168,24 @@ if [[ $(uname) == 'Darwin' || $(uname) == 'Linux' ]]; then
 			brew install spaceship
 	fi
 
-	# Custom files.
 	cp oh-my-zsh/spaceshiprc.zsh ~/.spaceshiprc.zsh
-	cp oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom
-	cp oh-my-zsh/paths.zsh ~/.oh-my-zsh/custom
+	cp oh-my-zsh/_*.zsh ~/.oh-my-zsh/custom
 
 echo "Do you need Amazon aliases? (y/n)"
 read answer
 
 if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
-		cp oh-my-zsh/amazon.zsh ~/.oh-my-zsh/custom
+		cp oh-my-zsh/*_amazon.zsh ~/.oh-my-zsh/custom
 fi
 
 	# Setup Spaceship prompt.
-	if [[ $(uname) == 'Linux' ]]; then
-		ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-		echo "ZSH_THEME=\"spaceship\"" >> ~/.zshrc
-		echo "source ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme" >> ~/.zshrc
-	elif [[ $(uname) == 'Darwin' ]]; then
-		echo "source $(brew --prefix)/opt/spaceship/spaceship.zsh" >> ~/.zshrc
-	fi
+#	if [[ $(uname) == 'Linux' ]]; then
+#		ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+#		echo "ZSH_THEME=\"spaceship\"" >> ~/.zshrc
+	#	echo "source ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme" >> ~/.zshrc
+	#elif [[ $(uname) == 'Darwin' ]]; then
+	#	echo "source $(brew --prefix)/opt/spaceship/spaceship.zsh" >> ~/.zshrc
+#	fi
 fi
 
 echo "Close this terminal and open an new one."

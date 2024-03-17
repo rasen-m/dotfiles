@@ -2,4 +2,6 @@
 
 echo "Backup oh-my-zsh files..."
 
-cp ~/.oh-my-zsh/custom/* oh-my-zsh/
+cp ~/.oh-my-zsh/custom/_*.zsh oh-my-zsh/
+cp ~/.oh-my-zsh/custom/amazon_*.zsh oh-my-zsh/
+cp ~/.spaceshiprc.zsh oh-my-zsh/spaceshiprc.zsh 

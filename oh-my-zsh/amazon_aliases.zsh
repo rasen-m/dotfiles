@@ -1,14 +1,6 @@
 # /bin/bash
 
-# Sources.
-
-source $HOME/.brazil_completion/zsh_completion
-
-# Exports
-export DEV_ACCOUNT_ID=992382445274
-
 # Functions
-
 function _ada_completer {
 	local first_password='get fucking fit'
 	expect -c "
@@ -62,32 +54,6 @@ alias sam="brazil-build-tool-exec sam" # ?
 # Aliases - Kill. 
 alias .kp='killport() { kill -9 $(lsof -t -i:"$1") }; killport'
 alias .dc='rm -rf build && rm -rf dist && rm -rf node_modules'
-
-# CDK Completion
-autoload -Uz compinit && compinit -i
-autoload bashcompinit && bashcompinit
-compinit
-
-function _cdk_completer {
-  if [[ "$PWD" == *"CDK" ]]; then
-    TEMPLATES=$(ls -1 build/cdk.out/*.template.json | awk '{split($0,t,/\/|\./); print t[4]}')
-    if [ "$3" ==  "brazil-build" ]; then
-      STACK_CMDS="cdk deploy:assets deploy:bootstrap deploy:pipeline diff:pipeline bootstrap clean"
-      COMPREPLY=($(compgen -W "$STACK_CMDS" $1))
-    elif [ "$3" == "cdk" ]; then
-      STACK_CMDS="list synthesize bootstrap deploy destroy diff metadata init context docs doctor"
-      COMPREPLY=($(compgen -W "$STACK_CMDS" $2))
-    elif [ "$3" == "deploy" ]; then
-      STACK_CMDS="$TEMPLATES "
-      COMPREPLY=($(compgen -W "--hotswap -e $STACK_CMDS" -- $2))
-    else
-      COMPREPLY=($(compgen -W "$TEMPLATES" $2))
-    fi
-  fi
-}
-
-complete -F _cdk_completer bb
-complete -F _cdk_completer brazil-build
 
 # Additional Team Aliases.
 alias .mes="cd $HOME/workplace/SeasonalEventsMetadataService/src"
