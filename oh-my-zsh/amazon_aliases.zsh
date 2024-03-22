@@ -18,7 +18,7 @@ alias bind='bindkey'
 alias nds='ninja-dev-sync' 
 alias auth='mwinit -o && kinit -f' 
 
-alias .a='cat ~/.oh-my-zsh/custom/amazon.zsh'
+alias .a='cat ~/.oh-my-zsh/custom/amazon_aliases.zsh'
 
 alias cr-desc="cr --description $HOME/.config/cr/cr-desc.md"
 
