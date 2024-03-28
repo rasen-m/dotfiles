@@ -23,10 +23,12 @@ alias .a='cat ~/.oh-my-zsh/custom/amazon_aliases.zsh'
 alias cr-desc="cr --description $HOME/.config/cr/cr-desc.md"
 
 alias adacu='ada_credentials_update() { ada credentials update --account=$1 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --once }; ada_credentials_update'
+alias adacu_hydra='ada_credentials_update_hydra() { ada credentials update --account=$1 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --once --profile HydraCLIProfile }; ada_credentials_update_hydra'
 
 # alias .1='mwinit -o' 
 alias .1='_ada_completer'
 alias .2='adacu 992382445274'
+alias .22='adacu_hydra 992382445274'
 alias .3='ada credentials serve --account 992382445274 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE'
 alias .0='ssh seanisu-cloud-desktop.aka.corp.amazon.com'
  
@@ -49,15 +51,16 @@ alias bbr='brc brazil-build'
 alias bball='brc --allPackages' 
 alias bbb='brc --allPackages brazil-build' 
 alias bbra='bbr apollo-pkg' # ?
-alias sam="brazil-build-tool-exec sam" # ?
+alias sam='brazil-build-tool-exec sam' # ?
+alias gg='brc --allPackages git'
 
 # Aliases - Kill. 
 alias .kp='killport() { kill -9 $(lsof -t -i:"$1") }; killport'
 alias .dc='rm -rf build && rm -rf dist && rm -rf node_modules'
 
 # Additional Team Aliases.
-alias .mes="cd $HOME/workplace/SeasonalEventsMetadataService/src"
-alias .mcms="cd $HOME/workplace/MarketingContentManagementService/src"
-alias .m3s="cd $HOME/workplace/MarketingMerchandizingManagementService/src"
+alias .mes='cd $HOME/workplace/SeasonalEventsMetadataService/src'
+alias .mcms='cd $HOME/workplace/MarketingContentManagementService/src'
+alias .m3s='cd $HOME/workplace/MarketingMerchandizingManagementService/src'
 
-alias .cdk="cd *CDK"
+alias .cdk='cd *CDK'
